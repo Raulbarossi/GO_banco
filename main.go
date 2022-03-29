@@ -1,25 +1,17 @@
 package main
 
-import "fmt"
-
-type cc struct {
-	titular string
-	agencia int
-	conta   int
-	saldo   float64
-}
+import (
+	"fmt"
+	"Alura\Banco\contas"
+)
 
 func main() {
 
-	cGuilherme := cc{"Guilherme", 3125, 22335513, 1055.43}
-	cBruna := cc{"Bruna", 2531, 33551236, 135.57}
+	cSilvia := contas.cc{"Silvia", 0, 0, 300}
+	cGustavo := contas.cc{"Gustavo", 0, 0, 100}
 
-	fmt.Println(cGuilherme)
-	fmt.Println(cBruna)
-
-	var cCris *cc
-	cCris = new(cc)
-	cCris.titular = "cris"
-
-	fmt.Println(cCris)
+	status := cSilvia.transferir(-200, &cGustavo)
+	fmt.Println(status)
+	fmt.Println(cSilvia)
+	fmt.Println(cGustavo)
 }
